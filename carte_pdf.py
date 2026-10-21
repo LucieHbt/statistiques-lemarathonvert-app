@@ -12,7 +12,7 @@ from reportlab.lib.pagesizes import A5
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
 
-FOND = HexColor("#0F2B30")
+FOND = HexColor("#0e3610")
 GRIS = HexColor("#6B6B6B")
 OR = HexColor("#E0B400")
 ARGENT = HexColor("#9A9A9A")
@@ -111,13 +111,13 @@ def generer_carte(
     medailles: dict[int, int],
     logo: bytes | None = None,
     fond: bytes | None = None,
-    titre_event: str = "Semi-Marathon de Cancale Saint-Malo",
+    titre_event: str = "Marathon Vert Rennes",
 ) -> bytes:
     """Retourne le PDF (format A5 portrait) sous forme de bytes.
 
     resultats : [(année, temps en secondes ou None si abandon)] pour les éditions courues.
     medailles : {1: nb d'or, 2: nb d'argent, 3: nb de bronze}.
-    couleur   : contour de la carte (rouge si homme, teal si femme).
+    couleur   : contour de la carte (rouge si homme, vert si femme).
     logo      : image du logo (affiché au-dessus du nom, sans cadre) – facultatif.
     fond      : photo de fond (celle de l'application) – facultative.
     """
@@ -151,9 +151,9 @@ def generer_carte(
     if not logo:  # repli : texte à la place du logo
         c.setFillColor(white)
         c.setFont("Helvetica-Bold", 15)
-        c.drawCentredString(cx, haut_logo - bh / 2 + 6, "SEMI-MARATHON")
+        c.drawCentredString(cx, haut_logo - bh / 2 + 6, "MARATHON VERT")
         c.setFont("Helvetica", 10)
-        c.drawCentredString(cx, haut_logo - bh / 2 - 10, "CANCALE – SAINT-MALO")
+        c.drawCentredString(cx, haut_logo - bh / 2 - 10, "RENNES")
 
     # ---- nom ----------------------------------------------------------
     c.setFillColor(white)

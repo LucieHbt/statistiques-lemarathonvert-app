@@ -4,3 +4,9 @@ numpy>=1.26
 plotly>=5.20
 reportlab>=4.0
 pillow>=10.0
+
+""" 
+pip install -r requirements.txt
+.venv\Scripts\Activate.ps1 
+streamlit run streamlit_app.py
+"""
